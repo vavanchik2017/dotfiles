@@ -44,7 +44,7 @@ set nocp
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf8,cp1251,cp866
+set fileencodings=utf-8,cp1251,cp866,koi8-r,koi8-u,latin1
 set ic
 set is
 set hls
@@ -65,3 +65,4 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 " Move selected block in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+

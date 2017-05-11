@@ -46,12 +46,6 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(archlinux git cloudapp taskwarrior lol perms autojump python history systemd web-search pass zsh-syntax-highlighting) 
 
-# ZSH_CACHE_DIR="$HOME/.local/share/oh-my-zsh-cache"
-if [[ ! -d $ZSH_CACHE_DIR ]];
-then
-	mkdir $ZSH_CACHE_DIR
-fi
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
