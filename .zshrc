@@ -67,6 +67,13 @@ unsetopt correct_all
 # autoload -U pick-web-browser
 # alias -s {html,htm}=chromium
 
+# Powerlevel9k
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram disk_usage root_indicator background_jobs)
+POWERLEVEL9K_DISK_USAGE_WARNING_LEVEL=90
+POWERLEVEL9K_DISK_USAGE_CRITICAL_LEVEL=95
+# POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
+
 # History
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=123456
