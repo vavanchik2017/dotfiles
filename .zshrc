@@ -94,6 +94,7 @@ alias v='xclip -o'
 alias ls='ls -h --color=tty --group-directories-first'
 alias cc='cc -ansi' #TODO rm
 alias cp='rsync -a --info=progress2'
+alias packer='packer --noedit'
 # alias wine='/opt/wine-staging/bin/wine'
 # alias winecfg='/opt/wine-staging/bin/winecfg'
 # alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
