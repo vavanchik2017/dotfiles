@@ -10,6 +10,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
+
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
@@ -95,6 +96,7 @@ alias ls='ls -h --color=tty --group-directories-first'
 alias cc='cc -ansi' #TODO rm
 alias cp='rsync -a --info=progress2'
 alias packer='packer --noedit'
+alias steam-auth='mono "${HOME}/opt/steam-auth/Steam Desktop Authenticator.exe"'
 # alias wine='/opt/wine-staging/bin/wine'
 # alias winecfg='/opt/wine-staging/bin/winecfg'
 # alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
@@ -124,7 +126,8 @@ man() {
 	man "$@"
 }
 
-# Pack
+# Functions
+
 pk() {
 if [ ${1} ]; then
 	case $1 in
@@ -158,3 +161,13 @@ else
 fi
 }
 
+archlinux-update() {
+	sudo pacman -Syu
+	sudo mkinitcpio -p linux
+	sudo bootctl --path=/boot update
+}
+
+my_logs() {
+	sudo systemctl --failed
+	sudo journalctl -p 3 -xb
+}

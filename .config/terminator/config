@@ -1,20 +1,8 @@
 [global_config]
-  title_hide_sizetext = True
-  inactive_color_offset = 1.0
   enabled_plugins = ,
+  inactive_color_offset = 1.0
+  title_hide_sizetext = True
 [keybindings]
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    use_system_font = False
-    background_image = None
-    cursor_color = "#ffffff"
-    foreground_color = "#ffffff"
-    icon_bell = False
-    show_titlebar = False
-    font = Droid Sans Mono Dotted for Powerline 10
-    background_color = "#262626"
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -25,3 +13,14 @@
       size = 650, 450
       type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#262626"
+    cursor_color = "#ffffff"
+    font = Droid Sans Mono Dotted for Powerline 10
+    foreground_color = "#ffffff"
+    icon_bell = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

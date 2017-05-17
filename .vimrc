@@ -23,6 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on " Vundle
@@ -48,12 +49,12 @@ set fileencodings=utf-8,cp1251,cp866,koi8-r,koi8-u,latin1
 set ic
 set is
 set hls
-set undofile " Maintain undo history between sessions
 set number
 set mouse=a
 let $PYTHONPATH='/usr/lib/python3.5/site-packages'
 set laststatus=2
 map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+" set undofile " Maintain undo history between sessions
 
 " Airline
 let g:airline_powerline_fonts = 1
