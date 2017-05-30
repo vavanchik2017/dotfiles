@@ -56,6 +56,8 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+reset-keyboard.sh
+
 # My variables
 export GITHUB='https://github.com/'
 export HOME_SSH=''
