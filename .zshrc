@@ -10,7 +10,6 @@ export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
-
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
@@ -71,6 +70,8 @@ unsetopt correct_all
 # alias -s {html,htm}=chromium
 
 # Powerlevel9k
+POWERLEVEL9K_HOME_ICON=$'\UF21B '
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram disk_usage root_indicator background_jobs)
 POWERLEVEL9K_DISK_USAGE_WARNING_LEVEL=90
@@ -90,7 +91,7 @@ setopt APPEND_HISTORY
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias whereami='curl ifconfig.co/json'
 alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3'
-alias vimwiki="vim /home/$USER/documents/vimwiki/index.wiki" #TODO
+alias vimwiki="vim ${HOME}/documents/vimwiki/index.wiki"
 alias qr='reset'
 alias c='xclip'
 alias v='xclip -o'
@@ -98,22 +99,11 @@ alias ls='ls -h --color=tty --group-directories-first'
 alias cc='cc -ansi' #TODO rm
 alias cp='rsync -a --info=progress2'
 alias packer='packer --noedit'
+alias steam='ulimit -n 4096 && steam -silent'
 alias steam-auth='mono "${HOME}/opt/steam-auth/Steam Desktop Authenticator.exe"'
 # alias wine='/opt/wine-staging/bin/wine'
 # alias winecfg='/opt/wine-staging/bin/winecfg'
 # alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
-
-# Resize bug fix
-# Set right side prompt to last current directory, using 3/8 the width
-set_rps1() {
-	(( cols = $COLUMNS * 3/8))
-	RPS1="%${cols}<..<%~%<<"
-}
-set_rps1
-# Reset right prompt, on window resize
-TRAPWINCH () {
-	set_rps1
-}
 
 # Man color
 man() {
@@ -129,6 +119,18 @@ man() {
 }
 
 # Functions
+
+# Resize bug fix
+# Set right side prompt to last current directory, using 3/8 the width
+set_rps1() {
+	(( cols = $COLUMNS * 3/8))
+	RPS1="%${cols}<..<%~%<<"
+}
+set_rps1
+# Reset right prompt, on window resize
+TRAPWINCH () {
+	set_rps1
+}
 
 pk() {
 if [ ${1} ]; then
@@ -166,7 +168,9 @@ fi
 archlinux-update() {
 	sudo pacman -Syu
 	sudo mkinitcpio -p linux
+	sudo locale-gen
 	sudo bootctl --path=/boot update
+	sudo pacman -Scc
 }
 
 my_logs() {
