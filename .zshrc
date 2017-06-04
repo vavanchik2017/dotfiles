@@ -15,25 +15,25 @@ CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+#HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+#DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=10
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+#DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+#DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -44,18 +44,14 @@ ENABLE_CORRECTION="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(archlinux git cloudapp taskwarrior lol perms autojump python history systemd web-search pass zsh-syntax-highlighting) 
+plugins=(archlinux git cloudapp perms autojump python history systemd web-search pass zsh-syntax-highlighting) #TODO
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-reset-keyboard.sh
+setxkbmap -layout "us,ru"
+setxkbmap -option "grp:caps_toggle,grp_led:scroll,compose:ralt"
 
 # My variables
 export GITHUB='https://github.com/'
@@ -65,22 +61,32 @@ export LANG="en_US.UTF-8"
 export EDITOR='vim'
 alias -s {txt,c,html,php,css}=vim
 unsetopt correct_all
-# export LANG="ru_RU.UTF-8"
-# autoload -U pick-web-browser
-# alias -s {html,htm}=chromium
+#export LANG="ru_RU.UTF-8"
+#autoload -U pick-web-browser
+#alias -s {html,htm}=chromium
 
 # Powerlevel9k
-POWERLEVEL9K_HOME_ICON=$'\UF21B '
+# Main settings
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram disk_usage root_indicator background_jobs)
+# Elements settings
+POWERLEVEL9K_RAM_ELEMENTS=(ram_free)
 POWERLEVEL9K_DISK_USAGE_WARNING_LEVEL=90
 POWERLEVEL9K_DISK_USAGE_CRITICAL_LEVEL=95
-# POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
+# Custom icons
+POWERLEVEL9K_LOCK_ICON=$'\UF023 '
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=" %F{green}╰─\UF0A9 %F{white}"
+POWERLEVEL9K_DIR_HOME_BACKGROUND='green'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='green'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='green'
+POWERLEVEL9K_RAM_BACKGROUND="black"
+POWERLEVEL9K_RAM_FOREGROUND="yellow"
 
 # History
 export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=123456
+export HISTSIZE=50000
 export SAVEHIST=${HISTSIZE}
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -101,22 +107,7 @@ alias cp='rsync -a --info=progress2'
 alias packer='packer --noedit'
 alias steam='ulimit -n 4096 && steam -silent'
 alias steam-auth='mono "${HOME}/opt/steam-auth/Steam Desktop Authenticator.exe"'
-# alias wine='/opt/wine-staging/bin/wine'
-# alias winecfg='/opt/wine-staging/bin/winecfg'
-# alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
-
-# Man color
-man() {
-	env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "$@"
-}
+#alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
 
 # Functions
 
@@ -130,6 +121,19 @@ set_rps1
 # Reset right prompt, on window resize
 TRAPWINCH () {
 	set_rps1
+}
+
+# Man color
+man() {
+	env \
+	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	man "$@"
 }
 
 pk() {
@@ -177,3 +181,4 @@ my_logs() {
 	sudo systemctl --failed
 	sudo journalctl -p 3 -xb
 }
+
