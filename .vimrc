@@ -1,69 +1,58 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
-" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing archlinux.vim since it alters the value of the
-" 'compatible' option.
+" ------------- System options -------------
+" Main
+runtime! archlinux.vim
+set nocompatible
 
-set nocompatible  
+" Powerline
+let $PYTHONPATH='/usr/lib/python3.5/site-packages'
+set laststatus=2
 
-" Vundle start
-filetype off " Vundle
-
+" Vundle
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" Vundle bundles
 Plugin 'VundleVim/Vundle.vim'
-"
 Plugin 'tpope/vim-fugitive'
-Plugin 'vimwiki/vimwiki'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
-
+Plugin 'airblade/vim-gitgutter'
+Plugin 'sjl/badwolf'
 call vundle#end()
-filetype plugin indent on " Vundle
-" Vundle end
+filetype plugin indent on
 
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages.
-runtime! archlinux.vim
+" ------------- User options -------------
+" Main
+set mouse=a
+set display+=lastline
+set cursorline
+set cursorcolumn
+set number
+set tabstop=3
+set ignorecase!
+set hlsearch
+set is
+"set nostartofline
+"set virtualedit=all
+"set undofile " Maintain undo history between sessions
 
-" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
-" Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
-" and configure vim to your own liking!
-
-" User options
-syntax enable
-colorscheme happy_hacking
-
-set nocp
+" Encodings
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,cp1251,cp866,koi8-r,koi8-u,latin1
-set ic
-set is
-set hls
-set number
-set mouse=a
-let $PYTHONPATH='/usr/lib/python3.5/site-packages'
-set laststatus=2
-map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-" set undofile " Maintain undo history between sessions
 
-" Airline
+" Visual
+syntax enable
+colorscheme badwolf
+set list!
+set listchars=tab:¦\ ,eol:¬,trail:·
+
+" Airline config
 let g:airline_powerline_fonts = 1
-let g:airline_theme='bubblegum'
+let g:airline_theme='term'
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
-
-
-" Move selected block in visual mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
