@@ -15,7 +15,7 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#262626"
+    background_color = "#121212"
     cursor_color = "#ffffff"
     font = Droid Sans Mono Dotted for Powerline 10
     foreground_color = "#ffffff"

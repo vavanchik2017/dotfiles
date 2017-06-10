@@ -50,6 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Reset keyboard settings
 setxkbmap -layout "us,ru"
 setxkbmap -option "grp:caps_toggle,grp_led:scroll,compose:ralt"
 
@@ -68,8 +69,8 @@ unsetopt correct_all
 # Powerlevel9k
 # Main settings
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram disk_usage root_indicator background_jobs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs disk_usage background_jobs root_indicator status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # Elements settings
 POWERLEVEL9K_RAM_ELEMENTS=(ram_free)
 POWERLEVEL9K_DISK_USAGE_WARNING_LEVEL=90
@@ -94,6 +95,7 @@ setopt HIST_REDUCE_BLANKS
 setopt APPEND_HISTORY
 
 # Aliases
+alias vi='vim'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias whereami='curl ifconfig.co/json'
 alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3'
@@ -105,23 +107,12 @@ alias ls='ls -h --color=tty --group-directories-first'
 alias cc='cc -ansi' #TODO rm
 alias cp='rsync -a --info=progress2'
 alias packer='packer --noedit'
+alias vcat='vcat.sh'
 alias steam='ulimit -n 4096 && steam -silent'
 alias steam-auth='mono "${HOME}/opt/steam-auth/Steam Desktop Authenticator.exe"'
 #alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
 
 # Functions
-
-# Resize bug fix
-# Set right side prompt to last current directory, using 3/8 the width
-set_rps1() {
-	(( cols = $COLUMNS * 3/8))
-	RPS1="%${cols}<..<%~%<<"
-}
-set_rps1
-# Reset right prompt, on window resize
-TRAPWINCH () {
-	set_rps1
-}
 
 # Man color
 man() {

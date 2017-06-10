@@ -31,6 +31,7 @@ set cursorline
 set cursorcolumn
 set number
 set tabstop=3
+set shiftwidth=3
 set ignorecase!
 set hlsearch
 set is
