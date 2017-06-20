@@ -60,6 +60,8 @@ export HOME_SSH=''
 export SSH_KEY_PATH="${HOME}/.ssh/dsa_id"
 export LANG="en_US.UTF-8"
 export EDITOR='vim'
+export ZSHCONFIG="${HOME}/.zshrc"
+export VIMCONFIG="${HOME}/.vimrc"
 alias -s {txt,c,html,php,css}=vim
 unsetopt correct_all
 #export LANG="ru_RU.UTF-8"
@@ -110,6 +112,7 @@ alias packer='packer --noedit'
 alias vcat='vcat.sh'
 alias steam='ulimit -n 4096 && steam -silent'
 alias steam-auth='mono "${HOME}/opt/steam-auth/Steam Desktop Authenticator.exe"'
+#alias calc='/usr/bin/env python3'
 #alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
 
 # Functions

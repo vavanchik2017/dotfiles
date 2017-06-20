@@ -44,10 +44,11 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/main/theme.lua")
 modkey = "Mod4"
 -- Main variables
 terminal = "terminator"
+filemanager = "pcmanfm"
 browser = "chromium"
 editor = "vim"
 editor_cmd = "vim"
-steam = "ulimit -n 4096 && steam -silent"
+--steam = os.execute("pgrep -u $USER -x steam || (ulimit -n 4096 && steam -silent &)")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts = {
@@ -278,6 +279,7 @@ globalkeys = awful.util.table.join(
 
 	-- Standard program
 	awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+	awful.key({ modkey,           }, "i", function () awful.util.spawn(filemanager) end),
 	awful.key({ modkey, "Control" }, "r", awesome.restart),
 	--awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -481,4 +483,5 @@ os.execute("pgrep -u $USER -x compton || (compton --backend glx --vsync opengl-s
 os.execute("pgrep -u $USER -x redshift-gtk || (redshift-gtk &)")
 os.execute("pgrep -u $USER -x psi-plus || (psi-plus &)")
 os.execute("pgrep -u $USER -x screencloud || (screencloud &)")
+os.execute("pgrep -u $USER -x telegram-desktop || (telegram-desktop &)")
 

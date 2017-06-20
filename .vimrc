@@ -30,14 +30,19 @@ set display+=lastline
 set cursorline
 set cursorcolumn
 set number
-set tabstop=3
-set shiftwidth=3
+set backspace=indent,eol,start
 set ignorecase!
 set hlsearch
 set is
 "set nostartofline
 "set virtualedit=all
 "set undofile " Maintain undo history between sessions
+
+" Tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
 
 " Encodings
 set encoding=utf-8
