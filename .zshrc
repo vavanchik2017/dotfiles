@@ -169,6 +169,7 @@ archlinux-update() {
 	sudo locale-gen
 	sudo bootctl --path=/boot update
 	sudo pacman -Scc
+    echo -e "\nDon't forget to run reset-env.sh and backup.sh"
 }
 
 my_logs() {
