@@ -483,5 +483,5 @@ os.execute("pgrep -u $USER -x compton || (compton --backend glx --vsync opengl-s
 os.execute("pgrep -u $USER -x redshift-gtk || (redshift-gtk &)")
 os.execute("pgrep -u $USER -x psi-plus || (psi-plus &)")
 os.execute("pgrep -u $USER -x screencloud || (screencloud &)")
-os.execute("pgrep -u $USER -x telegram-desktop || (telegram-desktop &)")
+os.execute("pgrep -u $USER -x telegram-desktop || (/home/noirhat/opt/telegram/Telegram &)")
 

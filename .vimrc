@@ -50,7 +50,8 @@ set ignorecase!
 set hlsearch
 set is
 set list
-set listchars=tab:⋮\ ,eol:¬,trail:·
+"set listchars=tab:⋮\ ,eol:¬,trail:·
+set listchars=tab:⋮\ ,eol:¬,space:·,trail:•,extends:>,precedes:<
 
 set modeline
 set tabstop=4
@@ -67,4 +68,3 @@ let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 
 colorscheme badwolf
-

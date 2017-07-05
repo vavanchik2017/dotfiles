@@ -164,7 +164,7 @@ fi
 }
 
 archlinux-update() {
-	sudo pacman -Syu
+	packer -Syu
 	sudo mkinitcpio -p linux
 	sudo locale-gen
 	sudo bootctl --path=/boot update
