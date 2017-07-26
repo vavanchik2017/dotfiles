@@ -112,6 +112,7 @@ alias packer='packer --noedit'
 alias vcat='vcat.sh'
 alias steam='ulimit -n 4096 && steam -silent'
 alias steam-auth='mono "${HOME}/opt/steam-auth/Steam Desktop Authenticator.exe"'
+alias yandex-sync='yandex-disk sync'
 #alias calc='/usr/bin/env python3'
 #alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
 
@@ -169,7 +170,7 @@ archlinux-update() {
 	sudo locale-gen
 	sudo bootctl --path=/boot update
 	sudo pacman -Scc
-    echo -e "\nDon't forget to run reset-env.sh and backup.sh"
+	echo -e "\nDon't forget to run reset-env.sh and backup.sh"
 }
 
 my_logs() {
@@ -177,3 +178,8 @@ my_logs() {
 	sudo journalctl -p 3 -xb
 }
 
+mem() {
+	ps -eo rss,pid,euser,args:100 --sort %mem | \
+		grep -v grep | grep -i $@ | \
+		awk '{printf $1/1024 "MB"; $1=""; print }'
+}

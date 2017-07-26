@@ -477,11 +477,11 @@ function check_for_terminal (command)
 end
 
 -- User apps autostart
-os.execute("pgrep -u $USER -x steam || (ulimit -n 4096 && steam -silent &)")
-os.execute("pgrep -u $USER -x calibre-server || (calibre-server &)")
+os.execute("pgrep -u $USER -x screencloud || (screencloud &)")
 os.execute("pgrep -u $USER -x compton || (compton --backend glx --vsync opengl-swc -G &)")
 os.execute("pgrep -u $USER -x redshift-gtk || (redshift-gtk &)")
+os.execute("pgrep -u $USER -x steam || (ulimit -n 4096 && steam -silent &)")
 os.execute("pgrep -u $USER -x psi-plus || (psi-plus &)")
-os.execute("pgrep -u $USER -x screencloud || (screencloud &)")
 os.execute("pgrep -u $USER -x telegram-desktop || (/home/noirhat/opt/telegram/Telegram &)")
-
+os.execute("pgrep -u $USER -x quiterss || (quiterss &)")
+--os.execute("pgrep -u $USER -x calibre-server || (calibre-server &)")
