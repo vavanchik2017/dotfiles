@@ -166,9 +166,14 @@ fi
 
 archlinux-update() {
 	packer -Syu
+
 	sudo mkinitcpio -p linux
-	sudo locale-gen
+	sudo vmware-modconfig --console --install-all
 	sudo bootctl --path=/boot update
+
+	sudo locale-gen
+	sudo fc-cache -f -v
+
 	sudo pacman -Scc
 	echo -e "\nDon't forget to run reset-env.sh and backup.sh"
 }
@@ -182,4 +187,13 @@ mem() {
 	ps -eo rss,pid,euser,args:100 --sort %mem | \
 		grep -v grep | grep -i $@ | \
 		awk '{printf $1/1024 "MB"; $1=""; print }'
+}
+
+chperm() {
+	chown -R ${USER}:${USER} ${1}
+	find ${1} -type d -exec chmod 755 {} +
+	find ${1} -type f -exec chmod 644 {} +
+	find ${1} -type f -name \*.sh -exec chmod 744 {} +
+	find ${1} -type f -name \*.out -exec chmod 744 {} +
+	find ${1} -type f -name \*.run -exec chmod 744 {} +
 }
