@@ -7,7 +7,7 @@ color_white										= "#EEEEEC"
 color_black										= "#121212"
 font_terminus									= "xos4 Terminus Regular 8"
 themes_dir										= os.getenv("HOME") .. "/.config/awesome/themes/main"
-theme.wallpaper								= themes_dir .. "/background.png"
+theme.wallpaper									= themes_dir .. "/br.jpg"
 
 -- Main
 theme.font										= font_terminus

@@ -44,15 +44,15 @@ ENABLE_CORRECTION="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(archlinux git cloudapp perms autojump python history systemd web-search pass zsh-syntax-highlighting) #TODO
+plugins=(archlinux git cloudapp perms autojump python history systemd web-search pass zsh-syntax-highlighting ) #colored-man-pages) #TODO
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # Reset keyboard settings
-setxkbmap -layout "us,ru"
-setxkbmap -option "grp:caps_toggle,grp_led:scroll,compose:ralt"
+#setxkbmap -layout "us,ru"
+#setxkbmap -option "grp:caps_toggle,grp_led:scroll,compose:ralt"
 
 # My variables
 export GITHUB='https://github.com/'
@@ -117,19 +117,6 @@ alias yandex-sync='yandex-disk sync'
 #alias cmus='reset-playlist.sh && cd /home/$USER/music/ && cmus'
 
 # Functions
-
-# Man color
-man() {
-	env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "$@"
-}
 
 pk() {
 if [ ${1} ]; then
