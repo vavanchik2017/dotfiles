@@ -1,6 +1,6 @@
 # dotfiles-legacy
 
-Legacy settings for my Arch Linux environment  
+Legacy settings for my Arch Linux environment (awesome wm, vim, terminator, oh-my-zsh custom theme)  
 
 [setup-shell.sh](https://github.com/noirhat/bin/blob/arch/setup-shell.sh) script for install this env (in legacy branch of my bin repo)  
 
