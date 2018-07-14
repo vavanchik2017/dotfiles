@@ -1,4 +1,4 @@
-# dotfiles-core
+# dotfiles
 
 Will be released soon  
 
