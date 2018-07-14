@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-
-# Setup my shell env
-# Dotfiles for this script: github.com/noirhat/dotfiles
-# Author: github.com/noirhat
-
+# This is a legacy script
 set -o errexit
 
 printmsg() {
