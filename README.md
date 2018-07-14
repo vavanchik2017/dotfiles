@@ -1,5 +1,6 @@
-# dotfiles-legacy
+# dotfiles-core
 
-Legacy settings for my Arch Linux environment (awesome wm, vim, terminator, oh-my-zsh custom theme)  
+Will be released soon  
 
-![Screenshot](screenshot.png)
+Old and more unixporn dotfiles (archlinux, awesome wm, terminator, powerline9k custom theme) you can find in [this brench](https://github.com/noirhat/dotfiles/tree/legacy).
+
